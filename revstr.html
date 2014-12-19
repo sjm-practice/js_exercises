@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<script type="text/javascript">
+  function revStr(currStr) {
+    var newStr = '';
+
+    if (typeof currStr === 'undefined' || currStr === null || currStr === '') {
+      return "invalid or empty string.";
+    }
+
+    for (var i = currStr.length - 1; i >= 0; i--) {
+      newStr += currStr[i];
+    }
+    return newStr;
+  }
+  alert("reversed string: " + prompt("Enter a string to reverse."));
+</script>
+</body>
+</html>
