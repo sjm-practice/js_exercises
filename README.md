@@ -12,6 +12,6 @@ A collection of small / simple javascript programs, written for practice.
 
 ## Files / Exercises
 
-**revstr.js** - reverses a string, provided by command line argument. The reversed string is logged to the console. If the string is invalid, and error message is logged.
+**revstr.js** - reverses a string, provided by command line argument. The reversed string is logged to the console. If the string is invalid, an error message is logged. (run from command line using node)
 
-**revstr.html** - prompts a user to enter a string, then alerts the reversed string. If the string is invalid, alerts an error message. 
+**revstr.html** - prompts a user to enter a string, then alerts the reversed string. If the string is invalid, logs an error message. (run from browser)
