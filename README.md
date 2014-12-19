@@ -4,7 +4,14 @@ A collection of small / simple javascript programs, written for practice.
 
 ## Usage
 
-Note, most are written to be run from node.
+.js files are solely javascript, written to be run from a command line using node. These can accept arguments from the command line.
 
+    > node  file.js  arg1  arg2  arg3  ...
 
+.html files contain javascript embedded in the script tags, and are to be run via a browser.
 
+## Files / Exercises
+
+**revstr.js** - reverses a string, provided by command line argument. The reversed string is logged to the console. If the string is invalid, and error message is logged.
+
+**revstr.html** - prompts a user to enter a string, then alerts the reversed string. If the string is invalid, alerts an error message. 
