@@ -1,6 +1,10 @@
 
-function mergeSortedArrays(arr1, arr2) {
+function mergeSortedArrays(source1, source2) {
   var newArr = [];
+  // make copies of original arrays, so not to modify those.
+  var arr1 = source1.slice();
+  var arr2 = source2.slice();
+
   while (arr1.length || arr2.length) {
     // note, arr1 and arr2 will not both be empty (the while loop would end first)
     if (!arr1.length) {
