@@ -1,8 +1,5 @@
-// grabs the argmuments from the command line, and omit the first two ( >node file.js string_to_rev )
-var args = process.argv.slice(2);
-
-// echo any arguments to the console
-console.log("arguments:\n" + args.join('\n') + '\n');
+// grabs the argmuments from the command line, and omit the first two ( > node file.js string_to_rev )
+var inputStr = process.argv[2];
 
 function revStr(currStr) {
   var newStr = '';
@@ -21,7 +18,7 @@ function revStr(currStr) {
   return newStr;
 }
 
-console.log("reversing string: " + args[0]);
-console.log("reversed string: " + revStr(args[0]));
+console.log("reversing string: " + inputStr);
+console.log("reversed string: " + revStr(inputStr));
 
 

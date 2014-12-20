@@ -1,21 +1,21 @@
-// this statment grabs the argmuments from the command line, 
-// and omits the first two (node filename.js)
-var args = process.argv.slice(2);
-
+// grabs the argmuments from the command line, and omit the first two ( > node file.js arg1 )
+var num = process.argv[2];
 
 function fibonacci(n) {
-  if (n <= 0) {
+  // check for the base cases first (zero return zero, one return one)
+  //    could also prevent negatives number here
+  if (n === 0) {
     return 0;
   } else if (n === 1) {
     return 1;
-  } else {
-    return fibonacci(n-1) + fibonacci(n-2)
+  } else {  // else return the sum of the prior two terms
+    return fibonacci(n-1) + fibonacci(n-2);
   }
-
-  return fibonacci(n) + fibonacci(n-1);
 }
 
-if (args.length != 3 || isNaN(parseInt(args[2])) {
-  console.log("command format: node fibonacci.js ")
-};
-console("The")
+// validate correct number of arguments and input
+if (process.argv.length != 3 || isNaN(parseInt(num))) {
+  console.log("command format: node fibonacci.js valid_positive_number");
+} else {
+  console.log("The fibonacci value of " + num + " is: " + fibonacci(parseInt(num)));
+}
