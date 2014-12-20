@@ -17,3 +17,5 @@ A collection of small / simple javascript programs, written for practice.
 **revstr.html** - prompts a user to enter a string, then alerts the reversed string. If the string is invalid, logs an error message. (run from browser)
 
 **fibonacci.js** - uses recursion to generate the fibonacci value of the provided number (run from command line using node)
+
+**merge\_sorted\_arrays.js** - takes two sorted arrays, and merges them in to one sorted array.
