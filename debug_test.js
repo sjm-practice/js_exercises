@@ -24,5 +24,13 @@ function revStr(currStr) {
 }
 
 console.info("reversing string:", inputStr);
+// debugger;
 console.log("reversed string: %s", revStr(inputStr));
 
+/*   some useful debugger commands
+cont, c - continue
+next, n - next  (step)
+watch("varName") - watch("inputStr")     [unwatch("varName")]
+sb(lineNum)   - sb(21)
+repl - starts a interactive inspector type mode (ctrl-c to exit mode)
+*/
