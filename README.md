@@ -19,3 +19,5 @@ A collection of small / simple javascript programs, written for practice.
 **fibonacci.js** - uses recursion to generate the fibonacci value of the provided number (run from command line using node)
 
 **merge\_sorted\_arrays.js** - takes two sorted arrays, and merges them in to one sorted array.
+
+**debug_test.js** - some javascript code, used for practing with the debugger.
