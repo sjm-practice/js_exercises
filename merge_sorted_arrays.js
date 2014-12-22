@@ -2,6 +2,8 @@
 function mergeSortedArrays(source1, source2) {
   var newArr = [];
   // make copies of original arrays, so not to modify those.
+  //    -although this does require more memory, it was a decision made
+  //     to simplify the code
   var arr1 = source1.slice();
   var arr2 = source2.slice();
 
