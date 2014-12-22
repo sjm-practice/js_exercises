@@ -31,6 +31,7 @@ console.log("reversed string: %s", revStr(inputStr));
 cont, c - continue
 next, n - next  (step)
 watch("varName") - watch("inputStr")     [unwatch("varName")]
+watchers - list current expressions being watched
 sb(lineNum)   - sb(21)
 repl - starts a interactive inspector type mode (ctrl-c to exit mode)
 */
