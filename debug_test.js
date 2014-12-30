@@ -29,9 +29,15 @@ console.log("reversed string: %s", revStr(inputStr));
 
 /*   some useful debugger commands
 cont, c - continue
-next, n - next  (step)
+step, s - step in
+next, n - step over
+out, o - step out, to next line outside of current function
+
 watch("varName") - watch("inputStr")     [unwatch("varName")]
 watchers - list current expressions being watched
-sb(lineNum)   - sb(21)
+
+setBreakpoint(lineNum), sb(lineNum)   - sb(21)
+clearBreakpoint(lineNum), cb(lineNum)   - sb(21)
+
 repl - starts a interactive inspector type mode (ctrl-c to exit mode)
 */
