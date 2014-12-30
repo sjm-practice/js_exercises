@@ -2,6 +2,8 @@
 var inputStr = process.argv[2];
 
 function revStr(currStr) {
+  // note, in javascript, strings are immutable, so a new string must be returned
+  // instead of reversing the string order in place
   var newStr = '';
 
   // make sure string is not empty or undefined.
