@@ -39,5 +39,5 @@ watchers - list current expressions being watched
 setBreakpoint(lineNum), sb(lineNum)   - sb(21)
 clearBreakpoint(lineNum), cb(lineNum)   - sb(21)
 
-repl - starts a interactive inspector type mode (ctrl-c to exit mode)
+repl - starts an interactive inspector type mode (ctrl-c to exit mode)
 */
