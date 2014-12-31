@@ -21,3 +21,5 @@ A collection of small / simple javascript programs, written for practice.
 **merge\_sorted\_arrays.js** - takes two sorted arrays, and merges them in to one sorted array.
 
 **debug_test.js** - some javascript code, used for practing with the debugger.
+
+**brackets.js** - This function will take a string, and return true if there are evenly matching opening and closing parentheses, braces, and brackets, otherwise false. Also returning false if they are not properly nested.
