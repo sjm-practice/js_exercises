@@ -24,7 +24,7 @@ function revStr(currStr) {
 }
 
 console.info("reversing string:", inputStr);
-// debugger;
+debugger;
 console.log("reversed string: %s", revStr(inputStr));
 
 /*   some useful debugger commands
