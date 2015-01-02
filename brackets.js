@@ -4,44 +4,42 @@ and closing parentheses, braces, and brackets, otherwise false. Also returning f
 if they are not properly nested.
 */
 function properNesting(sourceStr) {
-  var braceCnt = 0,
-    bracketCnt = 0,
-    parenthesisCnt = 0;
+  var nestingStack = [];
 
   for (var i = 0; i < sourceStr.length; i++) {
     switch (sourceStr[i]) {
-      case '(':
-        parenthesisCnt++;
-        break;
-      case ')':
-        parenthesisCnt--;
-        break;
-      case '{':
-        braceCnt++;
-        break;
-      case '}':
-        braceCnt--;
-        break;
       case '[':
-        bracketCnt++;
+      case '(':
+      case '{':
+        nestingStack.push(sourceStr[i]);
         break;
+
+      case ')':
+        if (nestingStack.length > 0 && nestingStack[nestingStack.length-1] === '(') {
+          nestingStack.pop();
+        } else {
+          return false;   // mismatching open close pair
+        }
+        break; 
+
+      case '}':
+        if (nestingStack.length > 0 && nestingStack[nestingStack.length-1] === '{') {
+          nestingStack.pop();
+        } else {
+          return false;   // mismatching open close pair
+        }
+        break; 
+
       case ']':
-        bracketCnt--;
-        break;
+        if (nestingStack.length > 0 && nestingStack[nestingStack.length-1] === '[') {
+          nestingStack.pop();
+        } else {
+          return false;   // mismatching open close pair
+        }
+        break; 
     } 
-
-    // Check proper nesting
-    if (parenthesisCnt < 0 || braceCnt < 0 || bracketCnt < 0) {
-      return false; // reached a closing bracket, before it was opened
-    };
   };
-
-  // Nesting has been correct, check all openings have closings
-  if (parenthesisCnt === 0 && braceCnt === 0 && bracketCnt === 0) {
-    return true;
-  } else {
-    return false;
-  }
+  return nestingStack.length === 0;
 }
 
 // grabs the argmuments from the command line, and omit the first two ( > node file.js string_to_rev )
