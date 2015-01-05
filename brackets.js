@@ -15,30 +15,34 @@ function properNesting(sourceStr) {
         break;
 
       case ')':
+        // found a closing bracket, verify there is a matching opening
         if (nestingStack.length > 0 && nestingStack[nestingStack.length-1] === '(') {
-          nestingStack.pop();
+          nestingStack.pop();   // remove nested pair from stack
         } else {
-          return false;   // mismatching open close pair
+          return false;         // mismatching open close pair
         }
         break; 
 
       case '}':
+        // found a closing bracket, verify there is a matching opening
         if (nestingStack.length > 0 && nestingStack[nestingStack.length-1] === '{') {
-          nestingStack.pop();
+          nestingStack.pop();   // remove nested pair from stack
         } else {
-          return false;   // mismatching open close pair
+          return false;         // mismatching open close pair
         }
         break; 
 
       case ']':
+        // found a closing bracket, verify there is a matching opening
         if (nestingStack.length > 0 && nestingStack[nestingStack.length-1] === '[') {
-          nestingStack.pop();
+          nestingStack.pop();   // remove nested pair from stack
         } else {
-          return false;   // mismatching open close pair
+          return false;         // mismatching open close pair
         }
         break; 
     } 
   };
+  // all matched/nested brackets removed from stack, should leave stack length zero
   return nestingStack.length === 0;
 }
 
