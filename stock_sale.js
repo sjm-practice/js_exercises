@@ -2,34 +2,34 @@
 An algorithm to find the best possible profit for a given day. Where
 that day's stock prices are stored in an array, the array index
 value being the number of minutes past opening trade time (9:30am).
+
+NOTE: this version is optimized, now only needing to pass through
+the loop once. This strategy is acceptable, if you allow the
+assumption you can buy and sell in the same minute, to avert a loss.
+[which wasn't stated in the original problem]
 */
 function optimumBuySell(dayStockPrices) {
-  var maxProfit;
+  var maxProfit = 0;
+  var minPriceTime;
   var purchaseInstructions = 'invalid price list';
 
   for (var i = 0; i < dayStockPrices.length; i++) {
     if (typeof dayStockPrices[i] !== 'undefined') {
 
-      // find a stock sale price, then check against all stock sale prices
-      // that occur after that one
-      for (var j = i+1; j < dayStockPrices.length; j++) {
+      // keep track of lowest price throughout the day
+      if (typeof minPriceTime === 'undefined' || dayStockPrices[i] < dayStockPrices[minPriceTime]) {
+        minPriceTime = i;
+      }
 
-        if (typeof dayStockPrices[j] !== 'undefined') {
-          // have found two established prices, now see if they are the best gain for the day
-          if (dayStockPrices[j] - dayStockPrices[i] > maxProfit || typeof maxProfit === 'undefined') {
-            maxProfit = dayStockPrices[j] - dayStockPrices[i];
-            purchaseInstructions = "Buy at minute: " + i +
-                                  "\nSell at minute: " + j +
-                                  "\nFor best gain of: " + maxProfit;
-          }
-        }
+      // see if current time's price, selling with current known min price
+      // sets a new max profit for the day (if so remember that)
+      if (dayStockPrices[i] - dayStockPrices[minPriceTime] >= maxProfit) {
+        maxProfit = dayStockPrices[i] - dayStockPrices[minPriceTime];
+        purchaseInstructions = "Buy at minute: " + minPriceTime +
+                              "\nSell at minute: " + i +
+                              "\nFor best gain of: " + maxProfit;
       }
     }
-  }
-
-  // not comletely necessary to do this check, but pointing out if there was no gain or loss.
-  if (maxProfit <= 0) {
-    purchaseInstructions = 'no money to be made today.';
   }
 
   return purchaseInstructions;
