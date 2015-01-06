@@ -23,3 +23,7 @@ A collection of small / simple javascript programs, written for practice.
 **debug_test.js** - some javascript code, used for practing with the debugger.
 
 **brackets.js** - This function will take a string, and return true if there are evenly matching opening and closing parentheses, braces, and brackets, otherwise false. Also returning false if they are not properly nested.
+
+**stock_sale.js** - This function will take an array of numbers (stock prices), and determine the times of day to buy and sell for the best gain. Where the index of the array represents minutes past the start of open trading.
+
+
