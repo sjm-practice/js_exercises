@@ -3,14 +3,12 @@ This script takes a list of numbers, creates a binary tree from those.
 Then returns and logs the second largest value in the tree.
 */
 
-// Create a constructor and prototype for a binary tree.
+// Create a constructor for a binary tree node.
 function BinaryTree(initialValue) {
   this.value = initialValue || null;
   this.leftChild = null;
   this.rightChild = null;
 }
-
-// Define useful methods for BinaryTree prototype
 
 // PRE coding pseudo code...
 // if new empty node, or found an equal value, save in current node
@@ -21,35 +19,39 @@ function BinaryTree(initialValue) {
 // else (look right)
 //    if nothing right, add right
 //    else go right, check again
-BinaryTree.prototype = {
-  insertValue: function(newValue) {
-    if (this.value === null || this.value === newValue) {
-      this.value = newValue;
-    } else {
-      if (newValue < this.value) {
-        if (this.leftChild === null) {
-          this.leftChild = new BinaryTree(newValue);
-        } else {
-          this.leftChild.insertValue(newValue);
-        }
+function insertValue(btn, newValue) {
+  if (btn.value === null || btn.value === newValue) {
+    btn.value = newValue;
+  } else {
+    if (newValue < btn.value) {
+      if (btn.leftChild === null) {
+        btn.leftChild = new BinaryTree(newValue);
       } else {
-        if (this.rightChild === null) {
-          this.rightChild = new BinaryTree(newValue);
-        } else {
-          this.rightChild.insertValue(newValue);
-        };
+        insertValue(btn.leftChild, newValue);
+      }
+    } else {
+      if (btn.rightChild === null) {
+        btn.rightChild = new BinaryTree(newValue);
+      } else {
+        insertValue(btn.rightChild, newValue);
       }
     }
-
-    return;
   }
+  return;
 }
 
 function maxValue(node) {
-  if (node.rightChild !== null) {
-    return maxValue(node.rightChild)
+  while (node.rightChild !== null) {
+    node = node.rightChild;
   }
   return node.value;
+}
+
+function getNodeWithMaxValue(node) {
+  while (node.rightChild !== null) {
+    node = node.rightChild;
+  }
+  return node;
 }
 
 // use recursion to count the number of nodes
@@ -69,9 +71,10 @@ function countLeafNodes(node) {
 var binaryTree = new BinaryTree();
 
 for (var i = 2; i < process.argv.length; i++) {
-  binaryTree.insertValue(process.argv[i]);
+  insertValue(binaryTree, process.argv[i]);
 };
 
 console.log("number of leaf nodes:", countLeafNodes(binaryTree));
 console.log("max value:", maxValue(binaryTree));
+console.log("max value (node):", getNodeWithMaxValue(binaryTree).value);
 
