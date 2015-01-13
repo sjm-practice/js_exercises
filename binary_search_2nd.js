@@ -40,13 +40,15 @@ function insertValue(btn, newValue) {
   return;
 }
 
-function maxValue(node) {
+// find and return max value in binary tree
+function getMaxValue(node) {
   while (node.rightChild !== null) {
     node = node.rightChild;
   }
   return node.value;
 }
 
+// find and return the node containing the max value
 function getNodeWithMaxValue(node) {
   while (node.rightChild !== null) {
     node = node.rightChild;
@@ -54,6 +56,29 @@ function getNodeWithMaxValue(node) {
   return node;
 }
 
+// return the value of the a node's parent node
+function getMaxParentValue (bt) {
+  var parentNodeValue = null;
+
+  while (bt.rightChild !== null) {
+    parentNodeValue = bt.value;
+    bt = bt.rightChild;
+  }
+  return parentNodeValue;
+}
+
+// get the second largest value in binary tree
+// either the parent of the largest, or max of left child
+function getSecondMaxValue (bt) {
+  var maxValueNode = getNodeWithMaxValue(bt);
+
+  if (maxValueNode.leftChild === null) {
+    secondMaxValue = getMaxParentValue(bt);
+  } else {
+    secondMaxValue = getMaxValue(maxValueNode.leftChild);
+  }
+  return secondMaxValue;
+}
 // use recursion to count the number of nodes
 // adding all left nodes to all right nodes, using stack to store sum
 function countLeafNodes(node) {
@@ -75,6 +100,7 @@ for (var i = 2; i < process.argv.length; i++) {
 };
 
 console.log("number of leaf nodes:", countLeafNodes(binaryTree));
-console.log("max value:", maxValue(binaryTree));
-console.log("max value (node):", getNodeWithMaxValue(binaryTree).value);
+console.log("max value:", getMaxValue(binaryTree));
+console.log("parent node value:", getMaxParentValue(binaryTree));
+console.log("second max value:", getSecondMaxValue(binaryTree));
 
