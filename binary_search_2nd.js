@@ -45,6 +45,13 @@ BinaryTree.prototype = {
   }
 }
 
+function maxValue(node) {
+  if (node.rightChild !== null) {
+    return maxValue(node.rightChild)
+  }
+  return node.value;
+}
+
 // use recursion to count the number of nodes
 // adding all left nodes to all right nodes, using stack to store sum
 function countLeafNodes(node) {
@@ -66,3 +73,5 @@ for (var i = 2; i < process.argv.length; i++) {
 };
 
 console.log("number of leaf nodes:", countLeafNodes(binaryTree));
+console.log("max value:", maxValue(binaryTree));
+
