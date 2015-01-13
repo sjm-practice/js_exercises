@@ -71,7 +71,7 @@ function countLeafNodes(node) {
 var binaryTree = new BinaryTree();
 
 for (var i = 2; i < process.argv.length; i++) {
-  insertValue(binaryTree, process.argv[i]);
+  insertValue(binaryTree, parseInt(process.argv[i], 10));
 };
 
 console.log("number of leaf nodes:", countLeafNodes(binaryTree));
