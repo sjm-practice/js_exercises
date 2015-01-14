@@ -27,3 +27,7 @@ A collection of small / simple javascript programs, written for practice.
 **stock_sale.js** - This function will take an array of numbers (stock prices), and determine the times of day to buy and sell for the best gain. Where the index of the array represents minutes past the start of open trading.
 
 **binary_search_2nd.js** - This script takes a list of numbers (as parameters from the command line), creates a binary tree from those, then returns and logs the second largest value in the tree.
+
+**array_products.js** - This script takes a given array of numbers, and for
+each element computes the product of all array elements except the current
+element, returning the array of products.
