@@ -99,6 +99,10 @@ function getSecondMaxValue_optimized (bt) {
   }
   return secondMaxValue;
 }
+// Note, an even better solution (per interviewcake), is you don't 
+// have to keep track of the parent, because you the the ability to look
+// ahead. if we have a right child, but that right child doesn't have 
+// any children, then we are at the parent of the max value node.
 
 // use recursion to count the number of nodes
 // adding all left nodes to all right nodes, using stack to store sum
