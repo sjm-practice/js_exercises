@@ -68,10 +68,10 @@ function getMaxParentValue (bt) {
 }
 
 // get the second largest value in binary tree
-// either the parent of the largest, or max of left child
 function getSecondMaxValue (bt) {
   var maxValueNode = getNodeWithMaxValue(bt);
 
+  // 2nd max value is either the parent of the largest, or max from left child
   if (maxValueNode.leftChild === null) {
     secondMaxValue = getMaxParentValue(bt);
   } else {
@@ -79,6 +79,27 @@ function getSecondMaxValue (bt) {
   }
   return secondMaxValue;
 }
+
+// similar to function above, but a little more efficient
+// because we don't re-traverse the tree to get the parent node
+function getSecondMaxValue_optimized (bt) {
+  var parentNodeValue = null;
+
+  // locate the max value node, while keeping track of the parent node
+  while (bt.rightChild !== null) {
+    parentNodeValue = bt.value;
+    bt = bt.rightChild;
+  }
+
+  // 2nd max value is either the parent of the largest, or max from left child
+  if (bt.leftChild === null) {
+    secondMaxValue = parentNodeValue;
+  } else {
+    secondMaxValue = getMaxValue(bt.leftChild);
+  }
+  return secondMaxValue;
+}
+
 // use recursion to count the number of nodes
 // adding all left nodes to all right nodes, using stack to store sum
 function countLeafNodes(node) {
@@ -103,4 +124,5 @@ console.log("number of leaf nodes:", countLeafNodes(binaryTree));
 console.log("max value:", getMaxValue(binaryTree));
 console.log("parent node value:", getMaxParentValue(binaryTree));
 console.log("second max value:", getSecondMaxValue(binaryTree));
+console.log("second max value (optimized):", getSecondMaxValue_optimized(binaryTree));
 
