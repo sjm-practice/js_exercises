@@ -37,7 +37,7 @@ function condensedMeetingTimes(meetingTimes) {
     currentEnd = meetingTimes[i][1];
 
     if (currentStart <= previousEnd) {
-      previousEnd = previousEnd >= currentEnd ? previousEnd : currentEnd; // (keep max of the two)
+      previousEnd = Math.max(previousEnd, currentEnd);
     } else {
       condensedTimes.push([previousStart, previousEnd]);
       previousStart = currentStart;
